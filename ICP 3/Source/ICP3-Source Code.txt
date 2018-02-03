@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="Item" ng-controller="Itemcontroller">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+        angular.module('Item', [])
+            .controller('Itemcontroller', function($scope, $http) {
+                $("#textToSpeech").hide();
+                $scope.getDetails = function() {
+                    $http.get('https://api.edamam.com/api/nutrition-data?app_id=51b3b391&app_key=dbb68741e240bcff5bbdfa07bc731c59&ingr=1%20large%20potato/'+$scope.Item+'.json').success(function(data)
+                    {
+                        console.log(data);
+                        $scope.Calories = "Calories : " + data.calories ;
+                        $scope.TotalWeight = "Total Weight : " + data.totalWeight;
+                        var url = "http://stream.watsonplatform.net/text-to-speech/api/v1/synthesize?username=247712b8-c751-4174-8c44-52eaa8e9e82b&password=ERoNDIURwRrI&text="+$scope.Item;
+                        $("#textToSpeech").attr('onclick',"location.href="+"'"+url+"'");
+                        $("#textToSpeech").show();
+                    })
+                }
+            });
+    </script>
+    <style>
+        .nutrition {
+            background-color: blue;
+            height: 150px;
+            width: 250px;
+            border: 1px solid powderblue;
+            padding: 1em;
+            margin: 50px;
+        }
+        .buttoncss {
+            background-color: blueviolet;
+            border: none;
+            color: white;
+            text-align: center;
+            display: inline-block;
+            font-size: 12px;
+        }
+        .TexttoSpeech {border-radius: 12px;}
+        .bg {
+
+            background-image: url("https://static1.squarespace.com/static/59a62f27f7e0ab8b4a7cb694/t/59d12a83e3df28867be1d01e/1506880206437/The-Sweet-Life-Nutrition-Web-Banner.jpg?format=1500w");
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+        }
+        .center {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            z-index: 15;
+            top: 50%;
+            left: 50%;
+            margin: -100px 0 0 -150px;
+
+        }
+        .headcenter {
+            position: absolute;
+            width: 300px;
+            height: 100px;
+            z-index: 15;
+            top: 40%;
+            left: 50%;
+            margin: -100px 0 0 -150px;
+
+        }
+    </style>
+    <h1 style="color: #005cbf" class="headcenter"> Nutrition Analysis</h1>
+</head>
+<body class="bg" class="bcolor" >
+<div class="center" >
+    <label style="color: blue" >Item:</label>
+    <input type="text" ng-model="Item"  >
+
+    <button id="btn" ng-click="getDetails()" class="buttoncss">GetDetails</button>
+    <div style="color: red" >
+        <p class="Calories" ng-bind="Calories" style="color:red" ></p>
+        <p class="TotalWeight" ng-bind="TotalWeight" ></p>
+    </div>
+    <input type="button" style="display: none" id="textToSpeech" value="Play" class="buttoncss"></input>
+
+</div>
+</body>
+</html>
