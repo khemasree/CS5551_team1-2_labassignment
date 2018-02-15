@@ -1,0 +1,64 @@
+<!-- Contact --><html>
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="contact" class="section md-padding">
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Row -->
+        <div class="row">
+
+            <!-- Section-header -->
+            <div class="section-header text-center">
+                <h2 class="title" align="center">Project Team Details</h2>
+            </div>
+            <!-- /Section-header -->
+
+            <!-- contact -->
+            <div class="col-sm-4">
+                <div class="contact">
+                    <table style="width:50%" align="center">
+                       <tr> <td><h3>Name</h3></td>
+                    <td><h3>Class ID</h3></td>
+                        <td><h3>Email</h3></td></tr>
+                    <tr>
+                        <td>Hemasree Koganti</td>
+                        <td>11</td>
+                        <td>hkt5d@mail.umkc.edu</td>
+                    </tr>
+                        <tr>
+                            <td>Priyanka Gurajada</td>
+                            <td>8</td>
+                            <td>@mail.umkc.edu</td>
+                        </tr>
+                        <tr>
+                            <td>Bhargavi Siddipeta</td>
+                            <td>37</td>
+                            <td>bs349@mail.umkc.edu</td>
+                        </tr>
+                        <tr>
+                            <td>Shruti Pinnamwar</td>
+                            <td>27</td>
+                            <td>spdb6@mail.umkc.edu</td>
+                        </tr>
+
+                    </table>
+            <!-- /contact -->
+                </div>
+            </div>
+        </div></div>
+</div>
+</body>
+</html>
